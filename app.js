@@ -5,6 +5,12 @@ const port = 3001;
 app.use(express.json());
 app.set("view engine", "ejs");
 
+const todoRoutes = require("./routes/todo.js");
+const { todos } = require("./routes/todo.js");
+
+app.use(express.json());
+app.use("/todos", todoRoutes);
+
 app.get("/", (req, res) => {
   res.render( "index" );
 });
